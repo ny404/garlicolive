@@ -471,16 +471,41 @@ footer {
    9. MEDIA QUERIES (Responsive)
    ========================================= */
 @media (max-width: 768px) {
-    /* Global Navigation Adjustments */
+    /* 1. Redefine variable for the new, shorter mobile nav height */
+    :root {
+        --nav-height-mobile: 120px; /* Reduced from 200px since button is gone */
+    }
+
+    /* 2. Global Navigation Adjustments */
     nav { 
+        height: var(--nav-height-mobile); 
         padding: 15px 20px; 
         flex-direction: column; 
-        gap: 10px; 
-        height: var(--nav-height-mobile); /* Stacks vertically */
-        justify-content: center;
+        justify-content: center; /* Center content vertically */
+        align-items: center;
+        gap: 15px; /* Space between Logo and Links */
+    }
+
+    /* 3. Floating Fixed "Order Now" Button */
+    nav .btn-reserve {
+        position: fixed;
+        bottom: 20px;          /* Distance from bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        z-index: 10000;        /* Sit on top of everything */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        background-color: var(--primary-color);
+        color: #fff;
+        border: 2px solid var(--accent-color);
+        text-align: center;
     }
     
-    /* Home Page */
+    /* Add padding to body so floating button doesn't cover footer content */
+    body { padding-bottom: 80px; }
+
+    /* 4. Home Page Adjustments */
     .hero h1 { font-size: 2.5rem; }
     .split-section { flex-direction: column; }
     .split-image { height: 300px; min-height: 300px; width: 100%; flex: none; }
@@ -490,9 +515,11 @@ footer {
     .review-card { border-right: none; padding: 0; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 40px; }
     .review-card:last-child { border-bottom: none; }
 
-    /* Menu Page */
+    /* 5. Menu Page Adjustments */
+    /* Uses new shorter height variable to stick correctly */
     .category-nav-sticky { top: var(--nav-height-mobile); }
-    .menu-category { scroll-margin-top: 300px; }
+    .menu-category { scroll-margin-top: 150px; } /* Adjusted for shorter header */
+    
     .menu-header { height: auto; padding: 60px 0; background-attachment: scroll; }
     .header-content { padding: 30px 20px; border-width: 2px; margin: 20px; }
     .menu-header h1 { font-size: 3rem; letter-spacing: 3px; }
@@ -501,15 +528,15 @@ footer {
     .dish-img { width: 100%; height: 200px; margin-bottom: 15px; }
     .cat-list { justify-content: flex-start; padding-left: 20px; padding-right: 20px; }
 
-    /* Gallery Page */
+    /* 6. Gallery Page Adjustments */
     .gallery-container { grid-template-columns: 1fr; }
     .gallery-item { height: 300px; }
 
-    /* Contact Page */
+    /* 7. Contact Page Adjustments */
     .contact-container { grid-template-columns: 1fr; gap: 30px; }
     .contact-header h1 { font-size: 2.5rem; }
 
-    /* Footer */
+    /* 8. Footer Adjustments */
     .footer-content {
         flex-direction: column;
         text-align: center;
