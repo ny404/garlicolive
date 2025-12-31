@@ -240,7 +240,7 @@ footer {
 .split-section { display: flex; flex-wrap: wrap; width: 100%; min-height: 600px; }
 .split-image {
     flex: 1; flex-basis: 50%;
-    background: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80') center/cover no-repeat;
+    background: url('../images/Bar.jpg') center/cover no-repeat;
     min-height: 400px;
 }
 .split-content {
