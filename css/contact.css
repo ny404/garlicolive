@@ -1,0 +1,147 @@
+/* --- REUSED CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0d2e23; /* Deep Emerald */
+            --accent-color: #d4af37; /* Gold */
+            --bg-color: #f9f8f4; /* Warm Cream */
+            --text-color: #333;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 1000;
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+        .logo a:hover { color: var(--primary-color); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: var(--accent-color); }
+        .nav-links a.active { border-bottom: 2px solid var(--accent-color); }
+
+        .btn-reserve {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-reserve:hover { background-color: var(--accent-color); }
+
+        /* --- PAGE HEADER --- */
+        .contact-header {
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+        .contact-header h1 { font-size: 3.5rem; color: var(--primary-color); }
+        
+        /* --- CONTACT CONTAINER (Grid) --- */
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* --- LEFT COL: INFO --- */
+        .info-block { margin-bottom: 40px; }
+        .info-block h3 { color: var(--accent-color); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .info-block p { margin-bottom: 10px; font-size: 1.05rem; }
+        
+        .dress-code-box {
+            background: #ecebe6;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* --- RIGHT COL: FORM --- */
+        .form-wrapper {
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .form-wrapper h2 { margin-bottom: 20px; color: var(--primary-color); }
+        .form-wrapper p { margin-bottom: 30px; font-size: 0.9rem; color: #666; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; }
+        
+        /* Luxurious Input Style */
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 15px 10px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: #fdfdfd;
+            font-family: var(--font-body);
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-bottom: 2px solid var(--accent-color);
+            background: #fff;
+        }
+        
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            width: 100%;
+            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { background-color: var(--accent-color); }
+
+        /* --- MAP SECTION --- */
+        .map-section {
+            width: 100%;
+            height: 450px;
+            margin-top: 50px;
+            filter: grayscale(80%); /* Makes map match the elegant aesthetic */
+            transition: 0.5s;
+        }
+        .map-section:hover { filter: grayscale(0%); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { padding: 20px; flex-direction: column; gap: 15px; }
+            .contact-container { grid-template-columns: 1fr; gap: 30px; }
+            .contact-header h1 { font-size: 2.5rem; }
+        }

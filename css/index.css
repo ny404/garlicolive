@@ -1,0 +1,244 @@
+/* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0d2e23; /* Deep Emerald */
+            --accent-color: #d4af37; /* Gold */
+            --bg-color: #f9f8f4; /* Warm Cream */
+            --text-color: #333;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        .btn-reserve {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-reserve:hover { background-color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 1px; }
+
+        /* --- SECTIONS GENERAL --- */
+        .section { padding: 80px 50px; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); }
+
+        /* --- FEATURED MENU --- */
+        .chef-selection-bg {
+            background-color: #ffffff;
+            background-image: linear-gradient(#f4f4f4 1px, transparent 1px), 
+                              linear-gradient(90deg, #f4f4f4 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .menu-item { background: #fff; padding-bottom: 20px; }
+        .menu-item img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 15px; }
+        .menu-item h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .menu-item p { font-style: italic; color: #666; }
+
+        /* --- BAR SECTION (Split Layout) --- */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            min-height: 600px;
+        }
+
+        .split-image {
+            flex: 1;
+            flex-basis: 50%;
+            background: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80') center/cover no-repeat;
+            min-height: 400px;
+        }
+
+        .split-content {
+            flex: 1;
+            flex-basis: 50%;
+            background-color: var(--primary-color);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .split-content h2 { font-size: 3rem; color: var(--accent-color); margin-bottom: 25px; }
+        .split-content p { font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; font-weight: 300; color: #e0e0e0; }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 12px 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: var(--font-body);
+        }
+        .btn-outline:hover { background: var(--accent-color); color: var(--primary-color); }
+
+        /* --- REVIEWS SECTION (UPDATED FOR CONTRAST) --- */
+        .reviews-section {
+            /* Changed to White BG for high contrast against the dark Bar section */
+            background-color: #ffffff; 
+            color: var(--primary-color);
+            padding: 100px 50px;
+            position: relative;
+        }
+        
+        .reviews-header-wrapper {
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        /* Underline style */
+        .reviews-header-wrapper::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        .reviews-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 0 40px;
+            /* Darker Gold Divider for visibility on white */
+            border-right: 1px solid rgba(212, 175, 55, 0.4); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .review-card:last-child { border-right: none; }
+
+        .review-card::before {
+            content: '“';
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: var(--accent-color);
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            /* Deep Green Text for high contrast */
+            color: var(--primary-color); 
+        }
+
+        .review-author {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            margin-top: auto;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #081f18;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+        .footer-info { margin-bottom: 20px; }
+        .newsletter input { padding: 10px; width: 250px; border: none; }
+        .newsletter button { padding: 10px 20px; background: var(--accent-color); border: none; cursor: pointer; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 20px; flex-direction: column; gap: 15px; }
+            
+            .split-section { flex-direction: column; }
+            .split-image { height: 300px; min-height: 300px; width: 100%; flex: none; }
+            .split-content { width: 100%; flex: none; padding: 60px 30px; }
+
+            .reviews-grid { flex-direction: column; gap: 60px; }
+            .review-card { border-right: none; padding: 0; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 40px; }
+            .review-card:last-child { border-bottom: none; }
+        }

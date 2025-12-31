@@ -3,162 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Reservations | Via Mulberia</title>
+    <title>Contact & Inquiries - Garlic & Olive | Brooklyn, NY</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- REUSED CSS VARIABLES & RESET --- */
-        :root {
-            --primary-color: #0d2e23; /* Deep Emerald */
-            --accent-color: #d4af37; /* Gold */
-            --bg-color: #f9f8f4; /* Warm Cream */
-            --text-color: #333;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Lato', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-body);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 { font-family: var(--font-heading); }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            background: var(--bg-color);
-            z-index: 1000;
-        }
-        .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
-        .logo a:hover { color: var(--primary-color); }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a:hover { color: var(--accent-color); }
-        .nav-links a.active { border-bottom: 2px solid var(--accent-color); }
-
-        .btn-reserve {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 10px 25px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-reserve:hover { background-color: var(--accent-color); }
-
-        /* --- PAGE HEADER --- */
-        .contact-header {
-            padding: 80px 20px 40px;
-            text-align: center;
-        }
-        .contact-header h1 { font-size: 3.5rem; color: var(--primary-color); }
-        
-        /* --- CONTACT CONTAINER (Grid) --- */
-        .contact-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        /* --- LEFT COL: INFO --- */
-        .info-block { margin-bottom: 40px; }
-        .info-block h3 { color: var(--accent-color); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-        .info-block p { margin-bottom: 10px; font-size: 1.05rem; }
-        
-        .dress-code-box {
-            background: #ecebe6;
-            padding: 25px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        /* --- RIGHT COL: FORM --- */
-        .form-wrapper {
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        .form-wrapper h2 { margin-bottom: 20px; color: var(--primary-color); }
-        .form-wrapper p { margin-bottom: 30px; font-size: 0.9rem; color: #666; }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; }
-        
-        /* Luxurious Input Style */
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 15px 10px;
-            border: none;
-            border-bottom: 1px solid #ccc;
-            background: #fdfdfd;
-            font-family: var(--font-body);
-            transition: 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-bottom: 2px solid var(--accent-color);
-            background: #fff;
-        }
-        
-        .btn-submit {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 15px 30px;
-            width: 100%;
-            border: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn-submit:hover { background-color: var(--accent-color); }
-
-        /* --- MAP SECTION --- */
-        .map-section {
-            width: 100%;
-            height: 450px;
-            margin-top: 50px;
-            filter: grayscale(80%); /* Makes map match the elegant aesthetic */
-            transition: 0.5s;
-        }
-        .map-section:hover { filter: grayscale(0%); }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 50px;
-            text-align: center;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            nav { padding: 20px; flex-direction: column; gap: 15px; }
-            .contact-container { grid-template-columns: 1fr; gap: 30px; }
-            .contact-header h1 { font-size: 2.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <a href="#contact-main" class="skip-link">Skip to contact form</a>
     <nav>
-        <div class="logo"><a href="index.html">Via Mulberia</a></div>
+        <div class="logo"><a href="index.html">Garlic & Olive</a></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
@@ -172,31 +24,29 @@
         <h1>Visit Us</h1>
     </header>
 
-    <main class="contact-container">
+    <main id="contact-main" class="contact-container">
         
         <section class="info-side">
             <div class="info-block">
                 <h3>Location</h3>
-                <p>133 Mulberry Street<br>New York, NY 10013</p>
-                <p>Located in the heart of Little Italy, near the historic Puck Building.</p>
+                <p>1314 Cortelyou Road<br>Brooklyn, NY 11226</p>
             </div>
 
             <div class="info-block">
                 <h3>Hours</h3>
-                <p><strong>Dinner:</strong> Mon - Sat: 5:00 PM - 11:30 PM</p>
-                <p><strong>Lunch:</strong> Thu - Sat: 11:30 AM - 2:30 PM</p>
-                <p><em>Closed Sundays</em></p>
+                <p><strong>Sun - Thu:</strong> 5:00 PM - 10:00 PM</p>
+                <p><strong>Fri - Sat:</strong> 5:00 PM - 12:00 AM</p>
             </div>
 
             <div class="info-block">
                 <h3>Direct Contact</h3>
-                <p><strong>Reservations:</strong> (212) 555-0199</p>
-                <p><strong>Email:</strong> reservations@viamulberia.com</p>
+                <p><strong>Phone:</strong> (929) 210-0198</p>
+                <p><strong>Email:</strong> garlicandolivepasta@gmail.com</p>
             </div>
 
             <div class="info-block dress-code-box">
                 <h3>Dress Code</h3>
-                <p>Via Mulberia maintains an elegant dining atmosphere. We respectfully request that guests refrain from wearing athletic wear, shorts, baseball caps, or flip-flops.</p>
+                <p>Garlic & Olive maintains an elegant, yet casual dining atmosphere. We respectfully request that guests refrain from wearing athletic wear, shorts, baseball caps, or flip-flops.</p>
             </div>
         </section>
 
@@ -208,7 +58,7 @@
 
                 <input type="hidden" name="_next" value="thanks.html">
                 
-                <input type="hidden" name="_subject" value="New Event Inquiry">
+                <input type="hidden" name="_subject" value="New Inquiry">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div class="form-group">
@@ -281,16 +131,61 @@
 
     </main>
 
-    <iframe 
+    <div class="map-section" style="height: 450px; width: 100%;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.52110244677!2d-73.96823282326267!3d40.64044214199228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b000b26c359%3A0xdc8967a981606eda!2sGarlic%20%26%20Olive%20Pasta%20Eats!5e0!3m2!1sen!2sus!4v1767208274474!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map showing location of Garlic & Olive at 1314 Cortelyou Road, Brooklyn, NY">
+        </iframe>
+    </div>
+
+    <!-- <iframe 
         class="map-section"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.238640702672!2d-73.99805542345862!3d40.71887893621451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25989a3c6360b%3A0x6b63c764e54e4f7!2sMulberry%20St%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1703000000000!5m2!1sen!2sus" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    </iframe> -->
 
-    <footer>
-        <p>&copy; 2025-<span id="year"></span>, Garlic & Olive. All rights reserved.</p>
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Garlic & Olive</h3>
+                <p>1314 Cortelyou Road<br>Brooklyn, NY 11226</p>
+                <p><strong>Phone:</strong> (929) 210-0198</p>
+                <p><strong>Email:</strong> garlicandolivepasta@gmail.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <p><strong>Sun - Thu:</strong> 5:00 PM - 10:00 PM</p>
+                <p><strong>Fri - Sat:</strong> 5:00 PM - 12:00 AM</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p><small>Adults and family-friendly dining experience.<br>Dress code applies.</small></p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Follow us on Instagram" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025-<span id="year"></span>, Garlic & Olive. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>

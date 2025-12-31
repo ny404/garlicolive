@@ -3,259 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Mulberia | Italian Cuisine NYC</title>
+    <title>Garic & Olive - Fresh Pasta and Italian Cuisine | Brooklyn, NY</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --primary-color: #0d2e23; /* Deep Emerald */
-            --accent-color: #d4af37; /* Gold */
-            --bg-color: #f9f8f4; /* Warm Cream */
-            --text-color: #333;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Lato', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-body);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            background: var(--bg-color);
-            z-index: 1000;
-        }
-
-        .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
-        
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a:hover { color: var(--accent-color); }
-
-        .btn-reserve {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 10px 25px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-reserve:hover { background-color: var(--accent-color); }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 80vh;
-            background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.4);
-        }
-        .hero-content { position: relative; z-index: 1; max-width: 800px; }
-        .hero h1 { font-size: 4rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 1px; }
-
-        /* --- SECTIONS GENERAL --- */
-        .section { padding: 80px 50px; text-align: center; }
-        .section-title { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); }
-
-        /* --- FEATURED MENU --- */
-        .chef-selection-bg {
-            background-color: #ffffff;
-            background-image: linear-gradient(#f4f4f4 1px, transparent 1px), 
-                              linear-gradient(90deg, #f4f4f4 1px, transparent 1px);
-            background-size: 30px 30px;
-            background-position: center center;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .menu-item { background: #fff; padding-bottom: 20px; }
-        .menu-item img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 15px; }
-        .menu-item h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .menu-item p { font-style: italic; color: #666; }
-
-        /* --- BAR SECTION (Split Layout) --- */
-        .split-section {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            min-height: 600px;
-        }
-
-        .split-image {
-            flex: 1;
-            flex-basis: 50%;
-            background: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80') center/cover no-repeat;
-            min-height: 400px;
-        }
-
-        .split-content {
-            flex: 1;
-            flex-basis: 50%;
-            background-color: var(--primary-color);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 60px;
-            text-align: center;
-        }
-
-        .split-content h2 { font-size: 3rem; color: var(--accent-color); margin-bottom: 25px; }
-        .split-content p { font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; font-weight: 300; color: #e0e0e0; }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 12px 35px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: var(--font-body);
-        }
-        .btn-outline:hover { background: var(--accent-color); color: var(--primary-color); }
-
-        /* --- REVIEWS SECTION (UPDATED FOR CONTRAST) --- */
-        .reviews-section {
-            /* Changed to White BG for high contrast against the dark Bar section */
-            background-color: #ffffff; 
-            color: var(--primary-color);
-            padding: 100px 50px;
-            position: relative;
-        }
-        
-        .reviews-header-wrapper {
-            margin-bottom: 60px;
-            position: relative;
-            display: inline-block;
-            text-align: center;
-            width: 100%;
-        }
-        /* Underline style */
-        .reviews-header-wrapper::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 15px auto 0;
-        }
-
-        .reviews-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            padding: 0 40px;
-            /* Darker Gold Divider for visibility on white */
-            border-right: 1px solid rgba(212, 175, 55, 0.4); 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .review-card:last-child { border-right: none; }
-
-        .review-card::before {
-            content: '“';
-            font-family: var(--font-heading);
-            font-size: 5rem;
-            color: var(--accent-color);
-            line-height: 0.5;
-            margin-bottom: 20px;
-        }
-
-        .review-text {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 30px;
-            line-height: 1.4;
-            /* Deep Green Text for high contrast */
-            color: var(--primary-color); 
-        }
-
-        .review-author {
-            color: var(--accent-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            font-family: var(--font-body);
-            margin-top: auto;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #081f18;
-            color: #fff;
-            padding: 50px;
-            text-align: center;
-        }
-        .footer-info { margin-bottom: 20px; }
-        .newsletter input { padding: 10px; width: 250px; border: none; }
-        .newsletter button { padding: 10px 20px; background: var(--accent-color); border: none; cursor: pointer; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { padding: 20px; flex-direction: column; gap: 15px; }
-            
-            .split-section { flex-direction: column; }
-            .split-image { height: 300px; min-height: 300px; width: 100%; flex: none; }
-            .split-content { width: 100%; flex: none; padding: 60px 30px; }
-
-            .reviews-grid { flex-direction: column; gap: 60px; }
-            .review-card { border-right: none; padding: 0; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 40px; }
-            .review-card:last-child { border-bottom: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <nav>
-        <div class="logo">Via Mulberia</div>
+        <div class="logo">Garlic & Olive</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
@@ -273,85 +28,107 @@
         </div>
     </header>
 
-    <section class="section">
-        <h2 class="section-title">A Singular Approach</h2>
-        <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
-            Located in the historic Puck Building area, Via Mulberia reflects a deep respect for Italian culinary history. 
-            We combine the finest local ingredients with authentic recipes passed down through generations.
-        </p>
-    </section>
+    <main id="main-content">
 
-    <section class="section chef-selection-bg">
-        <h2 class="section-title">Chef's Selections</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?auto=format&fit=crop&q=80" alt="Pasta">
-                <h3>Spicy Vodka Rigatoni</h3>
-                <p>Calabrian chili, reggiano, fresh basil.</p>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80" alt="Seafood">
-                <h3>Seared Octopus</h3>
-                <p>Fennel, citrus glaze, crispy potato.</p>
-            </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1629115916087-7e8c114a24ed?auto=format&fit=crop&q=80" alt="Dessert">
-                <h3>The Mulberry Panettone</h3>
-                <p>Limited edition, served with zabaglione.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="split-section">
-        <div class="split-image"></div>
-        
-        <div class="split-content">
-            <h2>The Bar</h2>
-            <p>
-                A sanctuary for the thirsty traveler. Our bar program honors the classics while embracing the new. 
-                Featuring an extensive collection of Amaro, a curated list of Italian vintages, and cocktails that define New York evenings.
+        <section class="section">
+            <h2 class="section-title">A Singular Approach</h2>
+            <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+                Located in the historic Puck Building area, Via Mulberia reflects a deep respect for Italian culinary history. 
+                We combine the finest local ingredients with authentic recipes passed down through generations.
             </p>
-            <a href="menu.html"><button class="btn-outline">View Drinks</button></a>
-        </div>
-    </section>
+        </section>
 
-    <section class="section reviews-section">
-        <div class="reviews-header-wrapper">
-            <h2 class="section-title" style="margin-bottom: 0;">Acclaim</h2>
-        </div>
-        
-        <div class="reviews-grid">
-            <div class="review-card">
-                <p class="review-text">Via Mulberia might be the most essential dining destination in Little Italy right now. A love letter to New York history.</p>
-                <p class="review-author">The New York Times</p>
+        <section class="section chef-selection-bg">
+            <h2 class="section-title">Chef's Selections</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?auto=format&fit=crop&q=80" alt="Pasta">
+                    <h3>Spicy Vodka Rigatoni</h3>
+                    <p>Calabrian chili, reggiano, fresh basil.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80" alt="Seafood">
+                    <h3>Seared Octopus</h3>
+                    <p>Fennel, citrus glaze, crispy potato.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1629115916087-7e8c114a24ed?auto=format&fit=crop&q=80" alt="Dessert">
+                    <h3>The Mulberry Panettone</h3>
+                    <p>Limited edition, served with zabaglione.</p>
+                </div>
             </div>
-            <div class="review-card">
-                <p class="review-text">The Spicy Vodka Rigatoni is nothing short of a religious experience. Perfectly balanced heat and cream.</p>
-                <p class="review-author">Eater NY</p>
+        </section>
+
+        <section class="split-section">
+            <div class="split-image"></div>
+
+            <div class="split-content">
+                <h2>The Bar</h2>
+                <p>
+                    A sanctuary for the thirsty traveler. Our bar program honors the classics while embracing the new. 
+                    Featuring an extensive collection of Amaro, a curated list of Italian vintages, and cocktails that define New York evenings.
+                </p>
+                <a href="menu.html"><button class="btn-outline">View Drinks</button></a>
             </div>
-            <div class="review-card">
-                <p class="review-text">An atmosphere that manages to be both incredibly grand and intimately warm. The service is impeccable.</p>
-                <p class="review-author">Condé Nast Traveler</p>
+        </section>
+
+        <section class="section reviews-section">
+            <div class="reviews-header-wrapper">
+                <h2 class="section-title" style="margin-bottom: 0;">Acclaim</h2>
             </div>
-        </div>
-    </section>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">Via Mulberia might be the most essential dining destination in Little Italy right now. A love letter to New York history.</p>
+                    <p class="review-author">The New York Times</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">The Spicy Vodka Rigatoni is nothing short of a religious experience. Perfectly balanced heat and cream.</p>
+                    <p class="review-author">Eater NY</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">An atmosphere that manages to be both incredibly grand and intimately warm. The service is impeccable.</p>
+                    <p class="review-author">Condé Nast Traveler</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer role="contentinfo">
-        <div class="footer-info">
-            <h3>Via Mulberia</h3>
-            <p>133 Mulberry St, New York, NY 10013</p>
-            <p>Mon - Sat: 5pm - 11:30pm</p>
-            <p><small>Adults-only dining experience. Dress code applies.</small></p>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Garlic & Olive</h3>
+                <p>1314 Cortelyou Road<br>Brooklyn, NY 11226</p>
+                <p><strong>Phone:</strong> (929) 210-0198</p>
+                <p><strong>Email:</strong> garlicandolivepasta@gmail.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <p><strong>Sun - Thu:</strong> 5:00 PM - 10:00 PM</p>
+                <p><strong>Fri - Sat:</strong> 5:00 PM - 12:00 AM</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <p><small>Adults and family-friendly dining experience.<br>Dress code applies.</small></p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Follow us on Instagram" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2025-<span id="year"></span>, Garlic & Olive. All rights reserved.</p>
-        <!-- <div class="newsletter">
-            <p>Sign up for news & special events</p>
-            <br>
-            <form>
-                <input type="email" placeholder="Your Email Address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div> -->
+
+        <div class="footer-bottom">
+            <p>&copy; 2025-<span id="year"></span>, Garlic & Olive. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
