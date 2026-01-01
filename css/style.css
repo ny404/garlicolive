@@ -195,7 +195,7 @@ footer {
    ========================================= */
 .hero {
     height: 80vh;
-    background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80') center/cover no-repeat;
+    background: url('../images/hero-banner.jpg') center/cover no-repeat var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
