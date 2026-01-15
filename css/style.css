@@ -468,7 +468,97 @@ footer {
 .map-section:hover { filter: grayscale(0%); }
 
 /* =========================================
-   9. MEDIA QUERIES (Responsive)
+   9. ACCESSIBLE PROMO MODAL
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Highest priority */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.is-visible .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+    z-index: 10;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: var(--primary-color);
+    outline: 2px solid var(--accent-color);
+}
+
+/* Modal Layout */
+.modal-img-container {
+    flex: 1;
+    min-height: 250px;
+}
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-text-container {
+    flex: 1;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-text-container h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.modal-text-container p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+/* =========================================
+   10. MEDIA QUERIES (Responsive)
    ========================================= */
 @media (max-width: 768px) {
     /* 1. Redefine variable for the new, shorter mobile nav height */
@@ -543,5 +633,17 @@ footer {
     }
     .social-links {
         justify-content: center;
+    }
+
+    /* 8. Modal Ajustments */
+    .modal-content {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    .modal-img-container {
+        height: 200px;
+    }
+    .modal-text-container {
+        padding: 30px 20px;
     }
 }

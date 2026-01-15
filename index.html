@@ -139,6 +139,80 @@
         </div>
     </footer>
 
+    <div id="promo-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn" aria-label="Close promotion">&times;</button>
+
+            <div class="modal-img-container">
+                <img src="images/popup-image.jpg" alt="Delicious Italian Pasta Dish" class="modal-img">
+            </div>
+
+            <div class="modal-text-container">
+                <h2 id="modal-title">Support Local, Eat Authentic</h2>
+                <p>Experience the taste of Italy at home. As a thank you for ordering directly and supporting our restaurant, take <strong>20% OFF</strong> your first order.</p>
+
+                <a href="https://order.mealkeyway.com/customer/release/index?mid=504675622b706653514a315274686e2b7658363547413d3d#/main" target="_blank" class="btn-reserve" id="modal-cta">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("promo-modal");
+            const closeBtn = document.getElementById("close-modal");
+            const modalCTA = document.getElementById("modal-cta");
+
+        // Config: Time in milliseconds (2 minutes = 120,000 ms)
+        const SHOW_DELAY = 1000; // Wait 1 second after page load before showing
+        const REAPPEAR_TIME = 2 * 60 * 1000; 
+
+        // Check Local Storage
+        const lastClosed = localStorage.getItem("modalClosedTime");
+        const now = new Date().getTime();
+
+        if (!lastClosed || (now - lastClosed > REAPPEAR_TIME)) {
+            setTimeout(() => {
+                openModal();
+            }, SHOW_DELAY);
+        }
+
+        function openModal() {
+            modal.classList.add("is-visible");
+            modal.setAttribute("aria-hidden", "false");
+            // Trap focus on the close button for accessibility
+            closeBtn.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove("is-visible");
+            modal.setAttribute("aria-hidden", "true");
+            
+            // Save current time to Local Storage
+            localStorage.setItem("modalClosedTime", new Date().getTime());
+        }
+
+        // Event Listeners
+        closeBtn.addEventListener("click", closeModal);
+        modalCTA.addEventListener("click", closeModal); // Optional: Close if they click the CTA
+
+        // Close on click outside (Backdrop)
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on ESC key (Accessibility standard)
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.classList.contains("is-visible")) {
+                closeModal();
+            }
+        });
+    });
+    </script>
+
     <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
